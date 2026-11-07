@@ -1,0 +1,886 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta
+      name="description"
+      content="A cozy 2.5D kitchen filled with playful bite-sized utilities."
+    />
+    <title>Bite Sized Utilities</title>
+    <link rel="icon" href="assets/waffle-cup-mascot.webp" />
+    <link rel="stylesheet" href="game-v11.css?v=17" />
+    <link rel="stylesheet" href="polish.css?v=2" />
+    <link rel="stylesheet" href="ui-polish.css?v=6" />
+  </head>
+  <body>
+    <svg class="svg-sprite" aria-hidden="true">
+      <symbol id="icon-calculator" viewBox="0 0 96 96">
+        <rect x="17" y="8" width="62" height="80" rx="15" fill="#e78167" stroke="#4f2f23" stroke-width="6" />
+        <rect x="27" y="19" width="42" height="18" rx="6" fill="#fff1c9" stroke="#4f2f23" stroke-width="5" />
+        <path d="M32 51h6m13 0h6m13 0h1M32 64h6m13 0h6m13 0h1M32 77h6m13 0h6m13 0h1" stroke="#4f2f23" stroke-width="8" stroke-linecap="round" />
+      </symbol>
+      <symbol id="icon-graph" viewBox="0 0 96 96">
+        <rect x="9" y="12" width="78" height="70" rx="14" fill="#82bbb6" stroke="#4f2f23" stroke-width="6" />
+        <path d="M24 23v45h54M24 56h54M24 41h54M41 23v45M59 23v45" fill="none" stroke="#fff0cb" stroke-width="3" opacity=".9" />
+        <path d="M25 64c10-2 13-20 23-19 10 2 10 13 18 10 7-3 8-22 14-25" fill="none" stroke="#b84f42" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+      </symbol>
+      <symbol id="icon-body" viewBox="0 0 96 96">
+        <path d="M20 83c0-19 11-31 28-31s28 12 28 31" fill="#91b783" stroke="#4f2f23" stroke-width="6" stroke-linecap="round" />
+        <circle cx="48" cy="27" r="17" fill="#f3b26d" stroke="#4f2f23" stroke-width="6" />
+        <path d="M39 26h2m14 0h2M40 35c5 4 11 4 16 0" fill="none" stroke="#4f2f23" stroke-width="4" stroke-linecap="round" />
+        <path d="M48 59c-9-9-20 3-10 13l10 9 10-9c10-10-1-22-10-13Z" fill="#db6f65" stroke="#4f2f23" stroke-width="4" />
+      </symbol>
+      <symbol id="icon-fraction" viewBox="0 0 96 96">
+        <rect x="18" y="10" width="60" height="76" rx="16" fill="#c6a8ca" stroke="#4f2f23" stroke-width="6" />
+        <path d="M30 49h36" stroke="#4f2f23" stroke-width="6" stroke-linecap="round" />
+        <circle cx="48" cy="30" r="9" fill="#fff1c9" stroke="#4f2f23" stroke-width="4" />
+        <path d="M41 69h14" stroke="#fff1c9" stroke-width="10" stroke-linecap="round" />
+      </symbol>
+      <symbol id="icon-percent" viewBox="0 0 96 96">
+        <path d="M12 25a14 14 0 0 1 14-14h42l17 17-40 54a13 13 0 0 1-18 2L12 72Z" fill="#f0b84f" stroke="#4f2f23" stroke-width="6" stroke-linejoin="round" />
+        <circle cx="61" cy="27" r="6" fill="#fff1c9" stroke="#4f2f23" stroke-width="4" />
+        <path d="M31 67 62 38M32 42h1m28 23h1" stroke="#4f2f23" stroke-width="8" stroke-linecap="round" />
+      </symbol>
+      <symbol id="icon-dice" viewBox="0 0 96 96">
+        <path d="m19 27 27-15 31 13-27 17Z" fill="#f7d98f" stroke="#4f2f23" stroke-width="6" stroke-linejoin="round" />
+        <path d="m19 27 31 15v40L18 66Z" fill="#df7964" stroke="#4f2f23" stroke-width="6" stroke-linejoin="round" />
+        <path d="m50 42 27-17 1 41-28 16Z" fill="#83b4ad" stroke="#4f2f23" stroke-width="6" stroke-linejoin="round" />
+        <path d="M32 42h1m4 23h1m26-26h1m0 26h1M45 25h1" stroke="#4f2f23" stroke-width="7" stroke-linecap="round" />
+      </symbol>
+      <symbol id="icon-roman" viewBox="0 0 96 96">
+        <path d="M18 13c15 5 28-5 41 0 9 3 14 1 19-1v70c-11 5-21 2-29 0-11-3-20 4-31 0Z" fill="#efd39b" stroke="#4f2f23" stroke-width="6" stroke-linejoin="round" />
+        <path d="M31 29h34M34 66h28" stroke="#b77c49" stroke-width="4" stroke-linecap="round" />
+        <path d="m31 38 10 24 8-24m5 0v24m-5-24h12" fill="none" stroke="#4f2f23" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+      </symbol>
+      <symbol id="icon-base" viewBox="0 0 96 96">
+        <rect x="7" y="14" width="35" height="31" rx="10" fill="#82bbb6" stroke="#4f2f23" stroke-width="5" />
+        <rect x="54" y="51" width="35" height="31" rx="10" fill="#e78167" stroke="#4f2f23" stroke-width="5" />
+        <path d="M48 24h21l-7-7m7 7-7 7M48 72H27l7 7m-7-7 7-7" fill="none" stroke="#4f2f23" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M19 26h11M68 63v9m-5-4h10" stroke="#fff1c9" stroke-width="6" stroke-linecap="round" />
+      </symbol>
+      <symbol id="icon-prime" viewBox="0 0 96 96">
+        <path d="m48 7 11 23 25 4-18 18 4 26-22-12-22 12 4-26-18-18 25-4Z" fill="#efba4f" stroke="#4f2f23" stroke-width="6" stroke-linejoin="round" />
+        <path d="M39 33h20L47 64" fill="none" stroke="#4f2f23" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+      </symbol>
+      <symbol id="icon-sequence" viewBox="0 0 96 96">
+        <rect x="8" y="25" width="25" height="48" rx="8" fill="#e78167" stroke="#4f2f23" stroke-width="5" />
+        <rect x="36" y="16" width="25" height="57" rx="8" fill="#f0ba50" stroke="#4f2f23" stroke-width="5" />
+        <rect x="64" y="7" width="25" height="66" rx="8" fill="#83b4ad" stroke="#4f2f23" stroke-width="5" />
+        <path d="M17 59h7M44 57h9M72 55h9" stroke="#fff1c9" stroke-width="6" stroke-linecap="round" />
+      </symbol>
+      <symbol id="icon-codehub" viewBox="0 0 96 96">
+        <rect x="12" y="11" width="72" height="57" rx="13" fill="#82bbb6" stroke="#4f2f23" stroke-width="6" />
+        <rect x="22" y="21" width="52" height="37" rx="7" fill="#2f4b49" stroke="#4f2f23" stroke-width="4" />
+        <path d="m38 31-9 8 9 8m20-16 9 8-9 8m-7-20-7 24" fill="none" stroke="#f4c25d" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M7 70h82l-8 14H15Z" fill="#e78167" stroke="#4f2f23" stroke-width="6" stroke-linejoin="round" />
+        <path d="M40 76h16" stroke="#fff1c9" stroke-width="4" stroke-linecap="round" />
+      </symbol>
+      <symbol id="icon-json" viewBox="0 0 96 96">
+        <rect x="12" y="8" width="72" height="80" rx="17" fill="#d5b3d8" stroke="#4f2f23" stroke-width="6" />
+        <path d="M42 25c-9 0-10 5-10 12v4c0 5-3 7-7 7 4 0 7 2 7 7v4c0 7 1 12 10 12M54 25c9 0 10 5 10 12v4c0 5 3 7 7 7-4 0-7 2-7 7v4c0 7-1 12-10 12" fill="none" stroke="#4f2f23" stroke-width="7" stroke-linecap="round" />
+        <circle cx="48" cy="47" r="5" fill="#efb94f" stroke="#4f2f23" stroke-width="3" />
+      </symbol>
+      <symbol id="icon-regex" viewBox="0 0 96 96">
+        <rect x="8" y="15" width="80" height="66" rx="17" fill="#efb94f" stroke="#4f2f23" stroke-width="6" />
+        <path d="M24 38h20M34 28v20m-8-16 16 13M58 35h1m12 0h1M58 58c5 5 11 5 16 0" fill="none" stroke="#4f2f23" stroke-width="6" stroke-linecap="round" />
+        <path d="m54 25 24 24" stroke="#fff1cf" stroke-width="4" stroke-linecap="round" opacity=".9" />
+      </symbol>
+      <symbol id="icon-codec" viewBox="0 0 96 96">
+        <rect x="9" y="12" width="78" height="72" rx="18" fill="#e9947f" stroke="#4f2f23" stroke-width="6" />
+        <path d="M25 34h43l-8-8m8 8-8 8M71 61H28l8 8m-8-8 8-8" fill="none" stroke="#4f2f23" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+        <circle cx="23" cy="34" r="5" fill="#fff1cf" />
+        <circle cx="73" cy="61" r="5" fill="#fff1cf" />
+      </symbol>
+      <symbol id="icon-hash" viewBox="0 0 96 96">
+        <path d="M20 12h56a12 12 0 0 1 12 12v48a12 12 0 0 1-12 12H20A12 12 0 0 1 8 72V24a12 12 0 0 1 12-12Z" fill="#91b782" stroke="#4f2f23" stroke-width="6" />
+        <path d="m39 27-7 43m28-43-7 43M24 42h48M21 57h48" fill="none" stroke="#4f2f23" stroke-width="7" stroke-linecap="round" />
+      </symbol>
+      <symbol id="icon-uuid" viewBox="0 0 96 96">
+        <path d="M12 23a11 11 0 0 1 11-11h50a11 11 0 0 1 11 11v50a11 11 0 0 1-11 11H23a11 11 0 0 1-11-11Z" fill="#88aeca" stroke="#4f2f23" stroke-width="6" />
+        <path d="M27 31h15m12 0h15M27 48h8m12 0h22M27 65h22m12 0h8" stroke="#fff1cf" stroke-width="7" stroke-linecap="round" />
+        <circle cx="45" cy="31" r="4" fill="#efb94f" /><circle cx="39" cy="48" r="4" fill="#e78167" /><circle cx="55" cy="65" r="4" fill="#efb94f" />
+      </symbol>
+      <symbol id="icon-jwt" viewBox="0 0 96 96">
+        <rect x="8" y="17" width="80" height="62" rx="17" fill="#c4add0" stroke="#4f2f23" stroke-width="6" />
+        <rect x="18" y="29" width="20" height="38" rx="7" fill="#e78167" stroke="#4f2f23" stroke-width="4" />
+        <rect x="42" y="29" width="20" height="38" rx="7" fill="#efb94f" stroke="#4f2f23" stroke-width="4" />
+        <rect x="66" y="29" width="12" height="38" rx="6" fill="#82b9b3" stroke="#4f2f23" stroke-width="4" />
+        <path d="M25 41h6m-6 12h6m24-12h1m-1 12h1" stroke="#fff1cf" stroke-width="5" stroke-linecap="round" />
+      </symbol>
+      <symbol id="icon-diff" viewBox="0 0 96 96">
+        <path d="M11 15h39a10 10 0 0 1 10 10v55H21A10 10 0 0 1 11 70Z" fill="#e9947f" stroke="#4f2f23" stroke-width="6" />
+        <path d="M39 20h36a10 10 0 0 1 10 10v51H49a10 10 0 0 1-10-10Z" fill="#91b782" stroke="#4f2f23" stroke-width="6" />
+        <path d="M52 39h21M52 53h21M52 67h12" stroke="#fff1cf" stroke-width="5" stroke-linecap="round" />
+        <path d="M18 43h13m-7-7v14" stroke="#4f2f23" stroke-width="5" stroke-linecap="round" />
+      </symbol>
+      <symbol id="icon-markdown" viewBox="0 0 96 96">
+        <rect x="8" y="14" width="80" height="68" rx="17" fill="#88aeca" stroke="#4f2f23" stroke-width="6" />
+        <path d="M22 62V34l13 15 13-15v28M60 35v21m-9-9 9 10 10-10" fill="none" stroke="#fff1cf" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+      </symbol>
+      <symbol id="icon-timestamp" viewBox="0 0 96 96">
+        <circle cx="48" cy="49" r="37" fill="#f0c66b" stroke="#4f2f23" stroke-width="6" />
+        <path d="M48 27v23l16 10" fill="none" stroke="#4f2f23" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M25 12 15 23m56-11 10 11" stroke="#82b9b3" stroke-width="7" stroke-linecap="round" />
+        <circle cx="48" cy="49" r="5" fill="#e78167" />
+      </symbol>
+      <symbol id="icon-files" viewBox="0 0 96 96">
+        <path d="M18 9h39l18 18v51a9 9 0 0 1-9 9H18a9 9 0 0 1-9-9V18a9 9 0 0 1 9-9Z" fill="#88aeca" stroke="#4f2f23" stroke-width="6" stroke-linejoin="round" />
+        <path d="M57 9v19h18" fill="#fff1cf" stroke="#4f2f23" stroke-width="5" stroke-linejoin="round" />
+        <path d="M24 42h28m-28 13h19m-19 13h25" stroke="#fff1cf" stroke-width="6" stroke-linecap="round" />
+        <path d="m59 51 9-9 9 9m-9-9v27m9-8-9 9-9-9" fill="none" stroke="#efb94f" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+      </symbol>
+      <symbol id="icon-textfilters" viewBox="0 0 96 96">
+        <rect x="8" y="13" width="80" height="70" rx="18" fill="#c4add0" stroke="#4f2f23" stroke-width="6" />
+        <path d="M22 35h31M28 62l12-29 12 29M32 52h16" fill="none" stroke="#fff1cf" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="m68 28 3 7 8 2-7 4 1 8-6-5-7 4 3-8-6-5 8 1Zm-3 29 2 5 6 1-5 3 1 6-5-4-5 3 2-6-4-4 6 1Z" fill="#efb94f" stroke="#4f2f23" stroke-width="3" stroke-linejoin="round" />
+      </symbol>
+      <symbol id="icon-wordcount" viewBox="0 0 96 96">
+        <rect x="14" y="30" width="68" height="52" rx="16" fill="#88aeca" stroke="#4f2f23" stroke-width="6" />
+        <circle cx="48" cy="56" r="15" fill="#fff1cf" stroke="#4f2f23" stroke-width="5" />
+        <path d="m48 56 8-8" stroke="#e78167" stroke-width="5" stroke-linecap="round" />
+        <path d="M34 30c0-9 6-14 14-14s14 5 14 14" fill="none" stroke="#4f2f23" stroke-width="6" stroke-linecap="round" />
+        <path d="M30 68h-4m40 0h-4" stroke="#4f2f23" stroke-width="5" stroke-linecap="round" />
+      </symbol>
+      <symbol id="icon-findreplace" viewBox="0 0 96 96">
+        <circle cx="40" cy="40" r="24" fill="#9ccbc4" stroke="#4f2f23" stroke-width="6" />
+        <path d="m58 58 18 18" stroke="#4f2f23" stroke-width="9" stroke-linecap="round" />
+        <path d="M31 44c0-7 5-11 10-11m14 14c-1 6-6 10-12 10" fill="none" stroke="#fff1cf" stroke-width="5" stroke-linecap="round" />
+        <path d="M41 27l3 6h-7Zm-1 32-3-6h7Z" fill="#fff1cf" stroke="#4f2f23" stroke-width="2" />
+      </symbol>
+      <symbol id="icon-notes" viewBox="0 0 96 96">
+        <path d="M16 18h64v44l-20 20H16Z" fill="#f2c86f" stroke="#4f2f23" stroke-width="6" stroke-linejoin="round" />
+        <path d="M80 62H60v20" fill="#fff1cf" stroke="#4f2f23" stroke-width="5" stroke-linejoin="round" />
+        <path d="M28 36h40M28 50h28" stroke="#4f2f23" stroke-width="5" stroke-linecap="round" />
+        <circle cx="48" cy="14" r="7" fill="#e78167" stroke="#4f2f23" stroke-width="4" />
+      </symbol>
+      <symbol id="icon-bakery" viewBox="0 0 96 96">
+        <path d="M20 46c0-15 12-26 28-26s28 11 28 26" fill="#c4add0" stroke="#4f2f23" stroke-width="6" stroke-linecap="round" />
+        <path d="M18 46h60l-7 32H25Z" fill="#e9947f" stroke="#4f2f23" stroke-width="6" stroke-linejoin="round" />
+        <path d="M36 54l-2 16m14-16v16m14-16 2 16" stroke="#4f2f23" stroke-width="5" stroke-linecap="round" />
+        <circle cx="38" cy="34" r="3.4" fill="#fff1cf" /><circle cx="50" cy="28" r="3.4" fill="#fff1cf" /><circle cx="60" cy="36" r="3.4" fill="#fff1cf" />
+      </symbol>
+      <symbol id="icon-qr" viewBox="0 0 96 96">
+        <rect x="12" y="12" width="72" height="72" rx="14" fill="#fff1cf" stroke="#4f2f23" stroke-width="6" />
+        <rect x="24" y="24" width="18" height="18" rx="4" fill="#4f2f23" /><rect x="54" y="24" width="18" height="18" rx="4" fill="#4f2f23" />
+        <rect x="24" y="54" width="18" height="18" rx="4" fill="#4f2f23" /><rect x="56" y="56" width="7" height="7" fill="#e78167" />
+        <rect x="66" y="64" width="7" height="7" fill="#4f2f23" /><rect x="56" y="66" width="6" height="6" fill="#4f2f23" />
+      </symbol>
+      <symbol id="icon-emoji" viewBox="0 0 96 96">
+        <circle cx="48" cy="48" r="34" fill="#f2c86f" stroke="#4f2f23" stroke-width="6" />
+        <circle cx="37" cy="41" r="4.5" fill="#4f2f23" /><circle cx="59" cy="41" r="4.5" fill="#4f2f23" />
+        <path d="M33 57c4 7 10 10 15 10s11-3 15-10" fill="none" stroke="#4f2f23" stroke-width="6" stroke-linecap="round" />
+        <circle cx="28" cy="52" r="4" fill="#e78167" opacity=".75" /><circle cx="68" cy="52" r="4" fill="#e78167" opacity=".75" />
+      </symbol>
+      <symbol id="icon-typing" viewBox="0 0 96 96">
+        <rect x="8" y="26" width="80" height="44" rx="13" fill="#9ccbc4" stroke="#4f2f23" stroke-width="6" />
+        <path d="M20 40h8m8 0h8m8 0h8m8 0h8M20 54h8m8 0h24m8 0h8" stroke="#fff1cf" stroke-width="6" stroke-linecap="round" />
+      </symbol>
+      <symbol id="icon-speedread" viewBox="0 0 96 96">
+        <path d="M48 26c-8-7-19-9-30-8v52c11-1 22 1 30 8 8-7 19-9 30-8V18c-11-1-22 1-30 8Z" fill="#88aeca" stroke="#4f2f23" stroke-width="6" stroke-linejoin="round" />
+        <path d="M48 26v52" stroke="#4f2f23" stroke-width="5" />
+        <path d="M26 36h12m-12 12h12m20-12h12m-12 12h12" stroke="#fff1cf" stroke-width="5" stroke-linecap="round" />
+        <path d="M10 12h20M6 20h16" stroke="#e78167" stroke-width="5" stroke-linecap="round" />
+      </symbol>
+            <symbol id="icon-sifter" viewBox="0 0 96 96">
+        <path d="M20 34h56l-8 30a14 14 0 0 1-13 10H41a14 14 0 0 1-13-10Z" fill="#9ccbc4" stroke="#4f2f23" stroke-width="6" stroke-linejoin="round" />
+        <path d="M14 34h68" stroke="#4f2f23" stroke-width="6" stroke-linecap="round" />
+        <path d="M36 46v16m12-16v16m12-16v16" stroke="#fff1cf" stroke-width="5" stroke-linecap="round" />
+        <circle cx="40" cy="76" r="3" fill="#efb94f" /><circle cx="52" cy="80" r="3" fill="#efb94f" /><circle cx="60" cy="74" r="3" fill="#efb94f" />
+      </symbol>
+      <symbol id="icon-letterlab" viewBox="0 0 96 96">
+        <path d="M38 12h20M42 12v22L22 70a12 12 0 0 0 11 16h30a12 12 0 0 0 11-16L54 34V12" fill="#c4add0" stroke="#4f2f23" stroke-width="6" stroke-linejoin="round" />
+        <path d="M32 62h32l6 12a8 8 0 0 1-7 10H33a8 8 0 0 1-7-10Z" fill="#e78167" stroke="#4f2f23" stroke-width="5" stroke-linejoin="round" />
+        <path d="M42 70h12m-9 8h8" stroke="#fff1cf" stroke-width="5" stroke-linecap="round" />
+      </symbol>
+      <symbol id="icon-ladle" viewBox="0 0 96 96">
+        <path d="M64 12c6 10 6 22-2 32" fill="none" stroke="#4f2f23" stroke-width="7" stroke-linecap="round" />
+        <path d="M22 48h52v6a26 26 0 0 1-52 0Z" fill="#e9947f" stroke="#4f2f23" stroke-width="6" stroke-linejoin="round" />
+        <circle cx="38" cy="38" r="4" fill="#efb94f" stroke="#4f2f23" stroke-width="3" />
+        <path d="m48 26 2 6 6 1-4 4 1 6-5-3-5 3 1-6-4-4 6-1Z" fill="#efb94f" stroke="#4f2f23" stroke-width="3" stroke-linejoin="round" />
+      </symbol>
+      <symbol id="icon-recipecards" viewBox="0 0 96 96">
+        <rect x="12" y="20" width="72" height="56" rx="10" fill="#fff1cf" stroke="#4f2f23" stroke-width="6" />
+        <path d="M12 36h72" stroke="#4f2f23" stroke-width="5" />
+        <path d="M24 50h34m-34 12h24" stroke="#88aeca" stroke-width="5" stroke-linecap="round" />
+        <path d="M70 56c4-6 12-4 12 2 0 5-7 9-12 12-5-3-12-7-12-12 0-6 8-8 12-2Z" fill="#e78167" stroke="#4f2f23" stroke-width="4" stroke-linejoin="round" />
+      </symbol>
+      <symbol id="icon-wonders" viewBox="0 0 96 96">
+        <circle cx="48" cy="42" r="28" fill="#c4add0" stroke="#4f2f23" stroke-width="6" />
+        <path d="M34 34c3-6 9-10 14-10" fill="none" stroke="#fff1cf" stroke-width="5" stroke-linecap="round" />
+        <path d="M30 74h36l6 10H24Z" fill="#efb94f" stroke="#4f2f23" stroke-width="6" stroke-linejoin="round" />
+        <path d="m58 30 3 6 6 1-4 4 1 6-6-3-5 3 1-6-4-4 6-1Z" fill="#fff1cf" stroke="#4f2f23" stroke-width="3" stroke-linejoin="round" />
+      </symbol>
+      <symbol id="icon-banner" viewBox="0 0 96 96">
+        <path d="M12 16h72" stroke="#4f2f23" stroke-width="6" stroke-linecap="round" />
+        <path d="M20 16h16v22l-8-6-8 6Z" fill="#e78167" stroke="#4f2f23" stroke-width="5" stroke-linejoin="round" />
+        <path d="M40 16h16v22l-8-6-8 6Z" fill="#efb94f" stroke="#4f2f23" stroke-width="5" stroke-linejoin="round" />
+        <path d="M60 16h16v22l-8-6-8 6Z" fill="#82b9b3" stroke="#4f2f23" stroke-width="5" stroke-linejoin="round" />
+        <path d="M28 60h40M28 74h28" stroke="#4f2f23" stroke-width="6" stroke-linecap="round" />
+      </symbol>
+      <symbol id="icon-reflow" viewBox="0 0 96 96">
+        <path d="M18 34h60v26a18 18 0 0 1-18 18H36a18 18 0 0 1-18-18Z" fill="#e9947f" stroke="#4f2f23" stroke-width="6" stroke-linejoin="round" />
+        <path d="M12 34h72" stroke="#4f2f23" stroke-width="6" stroke-linecap="round" />
+        <path d="M78 42h8a6 6 0 0 1 0 12h-8" fill="none" stroke="#4f2f23" stroke-width="6" />
+        <path d="M40 46v18m0-18c-6 0-8 4-8 7s3 6 8 5" fill="none" stroke="#fff1cf" stroke-width="5" stroke-linecap="round" />
+        <path d="M56 46h10m-10 9h8m-8 9h10" stroke="#fff1cf" stroke-width="5" stroke-linecap="round" />
+      </symbol>
+      <symbol id="icon-cipher" viewBox="0 0 96 96">
+        <path d="M40 12h16v14l10 12v38a10 10 0 0 1-10 10H40a10 10 0 0 1-10-10V38l10-12Z" fill="#c4add0" stroke="#4f2f23" stroke-width="6" stroke-linejoin="round" />
+        <path d="M30 52h36" stroke="#4f2f23" stroke-width="5" />
+        <circle cx="48" cy="64" r="7" fill="#efb94f" stroke="#4f2f23" stroke-width="4" />
+        <path d="M48 68v8" stroke="#4f2f23" stroke-width="5" stroke-linecap="round" />
+      </symbol>
+      <symbol id="icon-artstudio" viewBox="0 0 96 96">
+        <path d="M48 14c-21 0-36 14-36 32 0 18 14 34 32 34 6 0 11-4 11-9 0-3-2-6-2-9 0-4 3-7 7-7h6c10 0 18-8 18-18 0-13-15-23-36-23Z" fill="#f49ac2" stroke="#4f2f23" stroke-width="6" stroke-linejoin="round" />
+        <circle cx="31" cy="36" r="6" fill="#efb94f" stroke="#4f2f23" stroke-width="4" />
+        <circle cx="47" cy="28" r="6" fill="#82b9b3" stroke="#4f2f23" stroke-width="4" />
+        <circle cx="63" cy="36" r="6" fill="#e78167" stroke="#4f2f23" stroke-width="4" />
+        <circle cx="29" cy="54" r="6" fill="#fff1cf" stroke="#4f2f23" stroke-width="4" />
+        <path d="m58 64 22-22 6 6-22 22-10 4Z" fill="#fff1cf" stroke="#4f2f23" stroke-width="5" stroke-linejoin="round" />
+        <path d="m74 48 6 6" stroke="#e05a8b" stroke-width="5" stroke-linecap="round" />
+      </symbol>
+      <symbol id="icon-colorpicker" viewBox="0 0 96 96">
+        <rect x="12" y="14" width="54" height="68" rx="14" fill="#fff1cf" stroke="#4f2f23" stroke-width="6" />
+        <rect x="21" y="23" width="36" height="16" rx="6" fill="#f49ac2" stroke="#4f2f23" stroke-width="4" />
+        <rect x="21" y="44" width="16" height="16" rx="5" fill="#efb94f" stroke="#4f2f23" stroke-width="4" />
+        <rect x="41" y="44" width="16" height="16" rx="5" fill="#82b9b3" stroke="#4f2f23" stroke-width="4" />
+        <path d="M23 70h22" stroke="#4f2f23" stroke-width="6" stroke-linecap="round" />
+        <path d="M70 30c0 11 14 19 14 29a14 14 0 0 1-28 0c0-10 14-18 14-29Z" fill="#f49ac2" stroke="#4f2f23" stroke-width="6" stroke-linejoin="round" />
+        <path d="M65 58c0 4 3 7 6 7" fill="none" stroke="#fff1cf" stroke-width="4" stroke-linecap="round" />
+      </symbol>
+      <symbol id="icon-pixelart" viewBox="0 0 96 96">
+        <rect x="12" y="12" width="72" height="72" rx="14" fill="#fff1cf" stroke="#4f2f23" stroke-width="6" />
+        <rect x="22" y="24" width="16" height="16" fill="#f49ac2" stroke="#4f2f23" stroke-width="4" />
+        <rect x="58" y="24" width="16" height="16" fill="#f49ac2" stroke="#4f2f23" stroke-width="4" />
+        <rect x="22" y="40" width="52" height="16" fill="#e05a8b" stroke="#4f2f23" stroke-width="4" />
+        <rect x="38" y="56" width="20" height="16" fill="#efb94f" stroke="#4f2f23" stroke-width="4" />
+      </symbol>
+      <symbol id="icon-gradient" viewBox="0 0 96 96">
+        <rect x="10" y="14" width="76" height="68" rx="16" fill="#f49ac2" stroke="#4f2f23" stroke-width="6" />
+        <path d="M13 48c18-12 34 10 70-8v26a12 12 0 0 1-12 12H25a12 12 0 0 1-12-12Z" fill="#efb94f" stroke="#4f2f23" stroke-width="5" />
+        <circle cx="32" cy="31" r="8" fill="#fff1cf" stroke="#4f2f23" stroke-width="4" />
+        <path d="M54 28h18M58 38h14" stroke="#fff1cf" stroke-width="5" stroke-linecap="round" />
+      </symbol>
+      <symbol id="icon-palette" viewBox="0 0 96 96">
+        <rect x="12" y="14" width="72" height="68" rx="15" fill="#fff1cf" stroke="#4f2f23" stroke-width="6" />
+        <rect x="20" y="22" width="14" height="52" rx="5" fill="#f49ac2" stroke="#4f2f23" stroke-width="4" />
+        <rect x="34" y="22" width="14" height="52" rx="5" fill="#efb94f" stroke="#4f2f23" stroke-width="4" />
+        <rect x="48" y="22" width="14" height="52" rx="5" fill="#82b9b3" stroke="#4f2f23" stroke-width="4" />
+        <rect x="62" y="22" width="14" height="52" rx="5" fill="#c4add0" stroke="#4f2f23" stroke-width="4" />
+      </symbol>
+      <symbol id="icon-boxshadow" viewBox="0 0 96 96">
+        <rect x="28" y="28" width="54" height="54" rx="14" fill="#b35983" stroke="#4f2f23" stroke-width="5" />
+        <rect x="14" y="14" width="54" height="54" rx="14" fill="#fff1cf" stroke="#4f2f23" stroke-width="6" />
+        <circle cx="41" cy="41" r="11" fill="#f49ac2" stroke="#4f2f23" stroke-width="4" />
+      </symbol>
+      <symbol id="icon-blobmaker" viewBox="0 0 96 96">
+        <path d="M49 14c19-2 33 11 31 29-2 17 7 31-12 37-18 6-39 4-49-12-10-15-2-36 12-45 6-4 12-8 18-9Z" fill="#f49ac2" stroke="#4f2f23" stroke-width="6" stroke-linejoin="round" />
+        <circle cx="38" cy="42" r="4.5" fill="#4f2f23" />
+        <circle cx="58" cy="42" r="4.5" fill="#4f2f23" />
+        <path d="M40 55c5 5 11 5 16 0" fill="none" stroke="#4f2f23" stroke-width="5" stroke-linecap="round" />
+      </symbol>
+      <symbol id="icon-pattern" viewBox="0 0 96 96">
+        <rect x="12" y="12" width="72" height="72" rx="16" fill="#c4add0" stroke="#4f2f23" stroke-width="6" />
+        <circle cx="32" cy="32" r="8" fill="#fff1cf" stroke="#4f2f23" stroke-width="4" />
+        <circle cx="64" cy="32" r="8" fill="#f49ac2" stroke="#4f2f23" stroke-width="4" />
+        <circle cx="32" cy="64" r="8" fill="#efb94f" stroke="#4f2f23" stroke-width="4" />
+        <circle cx="64" cy="64" r="8" fill="#fff1cf" stroke="#4f2f23" stroke-width="4" />
+      </symbol>
+      <symbol id="icon-fontpair" viewBox="0 0 96 96">
+        <rect x="10" y="14" width="76" height="68" rx="16" fill="#88aeca" stroke="#4f2f23" stroke-width="6" />
+        <path d="M22 66 36 28l14 38M26 55h20" fill="none" stroke="#fff1cf" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M68 45v21m0-16c-4-4-12-3-12 6s8 10 12 6" fill="none" stroke="#efb94f" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+      </symbol>
+      <symbol id="icon-stickermaker" viewBox="0 0 96 96">
+        <path d="m48 10 11 10 15-3 4 14 13 8-7 13 5 14-14 6-6 14-15-4-11 10-11-10-15 4-6-14-14-6 5-14-7-13 13-8 4-14 15 3Z" fill="#efb94f" stroke="#4f2f23" stroke-width="5" stroke-linejoin="round" />
+        <path d="M48 64c-9-7-18-13-18-21 0-6 5-10 10-10 4 0 6 2 8 5 2-3 4-5 8-5 5 0 10 4 10 10 0 8-9 14-18 21Z" fill="#f49ac2" stroke="#4f2f23" stroke-width="4" stroke-linejoin="round" />
+      </symbol>
+      <symbol id="icon-settings" viewBox="0 0 96 96">
+        <path d="m48 8 8 9 12-1 4 12 11 6-4 12 6 11-10 8-1 12-13 1-8 10-11-7-12 4-6-11-12-4 1-13-8-9 8-10-1-12 12-5 5-11 12 3Z" fill="#efb94f" stroke="#4f2f23" stroke-width="6" stroke-linejoin="round" />
+        <circle cx="48" cy="48" r="17" fill="#82b9b3" stroke="#4f2f23" stroke-width="6" />
+        <circle cx="48" cy="48" r="6" fill="#fff1cf" />
+      </symbol>
+      <symbol id="icon-close" viewBox="0 0 48 48">
+        <path d="m14 14 20 20m0-20L14 34" stroke="currentColor" stroke-width="7" stroke-linecap="round" />
+      </symbol>
+    </svg>
+
+    <section class="home-screen" id="homeScreen" aria-labelledby="homeTitle">
+      <button class="home-wall" id="homeWall" aria-label="Bounce the waffle kitchen wall"></button>
+      <div class="home-top-shelf" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </div>
+
+      <header class="home-header">
+        <div class="hanging-rope hanging-rope-left" aria-hidden="true"></div>
+        <div class="hanging-rope hanging-rope-right" aria-hidden="true"></div>
+        <div class="title-sign home-title-sign">
+          <span class="home-title-bite" aria-hidden="true">•</span>
+          <div>
+            <p>Welcome to the tiny utility kitchen</p>
+            <h1 id="homeTitle">Bite Sized<br /><span>Utilities</span></h1>
+          </div>
+          <span class="home-title-bite" aria-hidden="true">•</span>
+        </div>
+      </header>
+
+      <main class="home-kitchen">
+        <div class="home-stage home-stage-two">
+          <div class="home-category-area">
+            <p class="home-prompt">Choose a cupboard</p>
+            <div class="home-category-grid">
+              <div class="home-category-slot">
+                <div class="home-cupboard" id="mathHomeCupboard">
+                  <div class="home-cupboard-crown" aria-hidden="true"></div>
+                  <div class="home-cupboard-frame">
+                    <div class="home-cupboard-inside">
+                      <span class="home-inside-icon"><svg><use href="#icon-calculator"></use></svg></span>
+                      <strong>Math &amp; Numbers</strong>
+                      <span>10 tools ready!</span>
+                      <span class="home-shelf-board" aria-hidden="true"></span>
+                    </div>
+                    <button class="home-cupboard-door" id="openMathCupboard" aria-expanded="false" aria-label="Open the Math and Numbers cupboard">
+                      <span class="home-door-inset">
+                        <span class="home-door-icons" aria-hidden="true">
+                          <svg><use href="#icon-calculator"></use></svg>
+                          <svg><use href="#icon-prime"></use></svg>
+                        </span>
+                        <strong>Math <span>&amp;</span><br />Numbers</strong>
+                        <small>10 utilities</small>
+                      </span>
+                      <span class="home-door-knob" aria-hidden="true"></span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="home-category-slot">
+                <div class="home-cupboard home-cupboard-code" id="codingHomeCupboard">
+                  <div class="home-cupboard-crown" aria-hidden="true"></div>
+                  <div class="home-cupboard-frame">
+                    <div class="home-cupboard-inside">
+                      <span class="home-inside-icon"><svg><use href="#icon-codehub"></use></svg></span>
+                      <strong>Coding &amp; Developing</strong>
+                      <span>10 tools ready!</span>
+                      <span class="home-shelf-board" aria-hidden="true"></span>
+                    </div>
+                    <button class="home-cupboard-door" id="openCodingCupboard" aria-expanded="false" aria-label="Open the Coding and Developing cupboard">
+                      <span class="home-door-inset">
+                        <span class="home-door-icons home-door-icons-single" aria-hidden="true">
+                          <svg><use href="#icon-codehub"></use></svg>
+                        </span>
+                        <strong>Coding <span>&amp;</span><br />Developing</strong>
+                        <small>10 utilities</small>
+                      </span>
+                      <span class="home-door-knob" aria-hidden="true"></span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="home-category-slot home-category-slot-text">
+                <div class="home-cupboard home-cupboard-text" id="textHomeCupboard">
+                  <div class="home-cupboard-crown" aria-hidden="true"></div>
+                  <div class="home-cupboard-frame">
+                    <div class="home-cupboard-inside">
+                      <span class="home-inside-icon"><svg><use href="#icon-files"></use></svg></span>
+                      <strong>Text &amp; Files</strong>
+                      <span>10 tools ready!</span>
+                      <span class="home-shelf-board" aria-hidden="true"></span>
+                    </div>
+                    <button class="home-cupboard-door" id="openTextCupboard" aria-expanded="false" aria-label="Open the Text and Files cupboard">
+                      <span class="home-door-inset">
+                        <span class="home-door-icons" aria-hidden="true">
+                          <svg><use href="#icon-files"></use></svg>
+                          <svg><use href="#icon-textfilters"></use></svg>
+                        </span>
+                        <strong>Text <span>&amp;</span><br />Files</strong>
+                        <small>10 utilities</small>
+                      </span>
+                      <span class="home-door-knob" aria-hidden="true"></span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="home-category-slot home-category-slot-design">
+                <div class="home-cupboard home-cupboard-design" id="designHomeCupboard">
+                  <div class="home-cupboard-crown" aria-hidden="true"></div>
+                  <div class="home-cupboard-frame">
+                    <div class="home-cupboard-inside">
+                      <span class="home-inside-icon"><svg><use href="#icon-artstudio"></use></svg></span>
+                      <strong>Design &amp; Art</strong>
+                      <span>10 tools ready!</span>
+                      <span class="home-shelf-board" aria-hidden="true"></span>
+                    </div>
+                    <button class="home-cupboard-door" id="openDesignCupboard" aria-expanded="false" aria-label="Open the Design and Art cupboard">
+                      <span class="home-door-inset">
+                        <span class="home-door-icons" aria-hidden="true">
+                          <svg><use href="#icon-artstudio"></use></svg>
+                          <svg><use href="#icon-colorpicker"></use></svg>
+                        </span>
+                        <strong>Design <span>&amp;</span><br />Art</strong>
+                        <small>10 utilities</small>
+                      </span>
+                      <span class="home-door-knob" aria-hidden="true"></span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="home-counter" aria-hidden="true"></div>
+      </main>
+    </section>
+
+    <div class="game-world math-screen category-screen" id="gameWorld" data-category-screen="math" hidden>
+      <button class="waffle-backdrop" id="waffleBackdrop" aria-label="Bounce the waffle wall"></button>
+
+      <nav class="math-nav" aria-label="Kitchen navigation">
+        <button class="back-home-button" id="backHome">
+          <span aria-hidden="true">←</span>
+          Home kitchen
+        </button>
+      </nav>
+
+      <header class="kitchen-header category-header">
+        <div class="hanging-rope hanging-rope-left" aria-hidden="true"></div>
+        <div class="hanging-rope hanging-rope-right" aria-hidden="true"></div>
+        <div class="title-sign">
+          <span class="title-doodle" aria-hidden="true">×</span>
+          <div>
+            <p>One cupboard. Ten tools.</p>
+            <h1>Math <span>&amp;</span> Numbers</h1>
+          </div>
+          <span class="title-doodle" aria-hidden="true">÷</span>
+        </div>
+      </header>
+
+      <main class="category-cabinet-scene">
+        <section class="open-category-cabinet math-category-cabinet" aria-label="Open Math and Numbers cupboard containing ten utilities">
+          <div class="category-cabinet-crown" aria-hidden="true"></div>
+          <div class="category-cabinet-frame">
+            <div class="category-cabinet-back">
+              <div class="category-shelf">
+                <button class="shelf-utility" data-tool="calculator" aria-label="Open Calculator">
+                  <span class="utility-art utility-art-coral"><svg><use href="#icon-calculator"></use></svg></span>
+                  <span>Calculator</span>
+                </button>
+                <button class="shelf-utility" data-tool="graph" aria-label="Open Graphing Calculator">
+                  <span class="utility-art utility-art-teal"><svg><use href="#icon-graph"></use></svg></span>
+                  <span>Graphing<br />Calculator</span>
+                </button>
+              </div>
+              <div class="category-shelf">
+                <button class="shelf-utility" data-tool="body" aria-label="Open Bodily Calculator">
+                  <span class="utility-art utility-art-sage"><svg><use href="#icon-body"></use></svg></span>
+                  <span>Bodily<br />Calculator</span>
+                </button>
+                <button class="shelf-utility" data-tool="fraction" aria-label="Open Fraction Calculator">
+                  <span class="utility-art utility-art-lilac"><svg><use href="#icon-fraction"></use></svg></span>
+                  <span>Fraction<br />Calculator</span>
+                </button>
+              </div>
+              <div class="category-shelf">
+                <button class="shelf-utility" data-tool="percentage" aria-label="Open Percentage Calculator">
+                  <span class="utility-art utility-art-honey"><svg><use href="#icon-percent"></use></svg></span>
+                  <span>Percentage<br />Calculator</span>
+                </button>
+                <button class="shelf-utility" data-tool="dice" aria-label="Open Dice Roller">
+                  <span class="utility-art utility-art-teal"><svg><use href="#icon-dice"></use></svg></span>
+                  <span>Dice Roller</span>
+                </button>
+              </div>
+              <div class="category-shelf">
+                <button class="shelf-utility" data-tool="roman" aria-label="Open Roman Numeral Calculator">
+                  <span class="utility-art utility-art-parchment"><svg><use href="#icon-roman"></use></svg></span>
+                  <span>Roman Numeral<br />Calculator</span>
+                </button>
+                <button class="shelf-utility" data-tool="base" aria-label="Open Number Base Converter">
+                  <span class="utility-art utility-art-coral"><svg><use href="#icon-base"></use></svg></span>
+                  <span>Number Base<br />Converter</span>
+                </button>
+              </div>
+              <div class="category-shelf">
+                <button class="shelf-utility" data-tool="prime" aria-label="Open Prime Number Checker">
+                  <span class="utility-art utility-art-honey"><svg><use href="#icon-prime"></use></svg></span>
+                  <span>Prime Number<br />Checker</span>
+                </button>
+                <button class="shelf-utility" data-tool="sequence" aria-label="Open Sequence Playground">
+                  <span class="utility-art utility-art-sage"><svg><use href="#icon-sequence"></use></svg></span>
+                  <span>Sequence<br />Playground</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="game-world coding-screen category-screen" id="codingWorld" data-category-screen="coding" hidden>
+      <button class="waffle-backdrop" id="codingWaffleBackdrop" aria-label="Bounce the waffle wall"></button>
+
+      <nav class="math-nav" aria-label="Kitchen navigation">
+        <button class="back-home-button" id="backHomeCoding">
+          <span aria-hidden="true">←</span>
+          Home kitchen
+        </button>
+      </nav>
+
+      <header class="kitchen-header category-header">
+        <div class="hanging-rope hanging-rope-left" aria-hidden="true"></div>
+        <div class="hanging-rope hanging-rope-right" aria-hidden="true"></div>
+        <div class="title-sign coding-title-sign">
+          <span class="title-doodle" aria-hidden="true">&lt;</span>
+          <div>
+            <p>Build it. Run it. See it.</p>
+            <h1>Coding <span>&amp;</span> Developing</h1>
+          </div>
+          <span class="title-doodle" aria-hidden="true">/&gt;</span>
+        </div>
+      </header>
+
+      <main class="category-cabinet-scene coding-cabinet-scene">
+        <section class="open-category-cabinet coding-category-cabinet" aria-label="Open Coding and Developing cupboard containing ten utilities">
+          <div class="category-cabinet-crown" aria-hidden="true"></div>
+          <div class="category-cabinet-frame">
+            <div class="category-cabinet-back">
+              <div class="category-shelf">
+                <button class="shelf-utility" data-tool="codehub" aria-label="Open CodeHub">
+                  <span class="utility-art utility-art-code"><svg><use href="#icon-codehub"></use></svg></span>
+                  <span>CodeHub</span>
+                  <small>Web · Python · C/C++</small>
+                </button>
+                <button class="shelf-utility" data-tool="jwt" aria-label="Open JWT Inspector">
+                  <span class="utility-art utility-art-lilac"><svg><use href="#icon-jwt"></use></svg></span>
+                  <span>JWT<br />Inspector</span>
+                </button>
+              </div>
+              <div class="category-shelf">
+                <button class="shelf-utility" data-tool="diff" aria-label="Open Diff Checker">
+                  <span class="utility-art utility-art-coral"><svg><use href="#icon-diff"></use></svg></span>
+                  <span>Diff Checker</span>
+                </button>
+                <button class="shelf-utility" data-tool="markdown" aria-label="Open Markdown Studio">
+                  <span class="utility-art utility-art-teal"><svg><use href="#icon-markdown"></use></svg></span>
+                  <span>Markdown<br />Studio</span>
+                </button>
+              </div>
+              <div class="category-shelf">
+                <button class="shelf-utility" data-tool="timestamp" aria-label="Open Timestamp Lab">
+                  <span class="utility-art utility-art-honey"><svg><use href="#icon-timestamp"></use></svg></span>
+                  <span>Timestamp Lab</span>
+                </button>
+                <button class="shelf-utility" data-tool="json" aria-label="Open JSON Workshop">
+                  <span class="utility-art utility-art-lilac"><svg><use href="#icon-json"></use></svg></span>
+                  <span>JSON<br />Workshop</span>
+                </button>
+              </div>
+              <div class="category-shelf">
+                <button class="shelf-utility" data-tool="regex" aria-label="Open Regex Playground">
+                  <span class="utility-art utility-art-honey"><svg><use href="#icon-regex"></use></svg></span>
+                  <span>Regex<br />Playground</span>
+                </button>
+                <button class="shelf-utility" data-tool="codec" aria-label="Open Data Codec">
+                  <span class="utility-art utility-art-coral"><svg><use href="#icon-codec"></use></svg></span>
+                  <span>Data Codec</span>
+                </button>
+              </div>
+              <div class="category-shelf">
+                <button class="shelf-utility" data-tool="hash" aria-label="Open Hash Generator">
+                  <span class="utility-art utility-art-sage"><svg><use href="#icon-hash"></use></svg></span>
+                  <span>Hash<br />Generator</span>
+                </button>
+                <button class="shelf-utility" data-tool="uuid" aria-label="Open UUID Forge">
+                  <span class="utility-art utility-art-teal"><svg><use href="#icon-uuid"></use></svg></span>
+                  <span>UUID Forge</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="game-world text-screen category-screen" id="textWorld" data-category-screen="text" hidden>
+      <button class="waffle-backdrop" id="textWaffleBackdrop" aria-label="Bounce the waffle wall"></button>
+
+      <nav class="math-nav" aria-label="Kitchen navigation">
+        <button class="back-home-button" id="backHomeText">
+          <span aria-hidden="true">←</span>
+          Home kitchen
+        </button>
+      </nav>
+
+      <header class="kitchen-header category-header">
+        <div class="hanging-rope hanging-rope-left" aria-hidden="true"></div>
+        <div class="hanging-rope hanging-rope-right" aria-hidden="true"></div>
+        <div class="title-sign text-title-sign">
+          <span class="title-doodle" aria-hidden="true">A</span>
+          <div>
+            <p>Flip it. Filter it. Save it.</p>
+            <h1>Text <span>&amp;</span> Files</h1>
+          </div>
+          <span class="title-doodle" aria-hidden="true">↻</span>
+        </div>
+      </header>
+
+      <main class="category-cabinet-scene text-cabinet-scene">
+        <section class="open-category-cabinet text-category-cabinet" aria-label="Open Text and Files cupboard containing ten utilities">
+          <div class="category-cabinet-crown" aria-hidden="true"></div>
+          <div class="category-cabinet-frame">
+            <div class="category-cabinet-back">
+              <div class="category-shelf text-category-shelf">
+                <button class="shelf-utility text-shelf-utility" data-tool="fileconverter" aria-label="Open File Converter">
+                  <span class="utility-art utility-art-teal"><svg><use href="#icon-files"></use></svg></span>
+                  <span>File<br />Converter</span>
+                  <small>images · docs · data · audio</small>
+                </button>
+                <button class="shelf-utility text-shelf-utility" data-tool="textfilters" aria-label="Open Crazy Text Filters">
+                  <span class="utility-art utility-art-lilac"><svg><use href="#icon-textfilters"></use></svg></span>
+                  <span>Crazy Text<br />Filters</span>
+                  <small>46 transformations</small>
+                </button>
+              </div>
+              <div class="category-shelf text-category-shelf">
+                <button class="shelf-utility text-shelf-utility" data-tool="wordcounter" aria-label="Open Word Counter">
+                  <span class="utility-art utility-art-blue"><svg><use href="#icon-wordcount"></use></svg></span>
+                  <span>Word<br />Counter</span>
+                  <small>live text scale</small>
+                </button>
+                <button class="shelf-utility text-shelf-utility" data-tool="findreplace" aria-label="Open Find and Replace">
+                  <span class="utility-art utility-art-coral"><svg><use href="#icon-findreplace"></use></svg></span>
+                  <span>Find &amp;<br />Replace</span>
+                  <small>swap rules + regex</small>
+                </button>
+              </div>
+              <div class="category-shelf text-category-shelf">
+                <button class="shelf-utility text-shelf-utility" data-tool="notes" aria-label="Open Fridge Notes">
+                  <span class="utility-art utility-art-honey"><svg><use href="#icon-notes"></use></svg></span>
+                  <span>Fridge<br />Notes</span>
+                  <small>sticky &amp; saved</small>
+                </button>
+                <button class="shelf-utility text-shelf-utility" data-tool="bakery" aria-label="Open Placeholder Bakery">
+                  <span class="utility-art utility-art-sage"><svg><use href="#icon-bakery"></use></svg></span>
+                  <span>Placeholder<br />Bakery</span>
+                  <small>waffle ipsum</small>
+                </button>
+              </div>
+              <div class="category-shelf text-category-shelf">
+                <button class="shelf-utility text-shelf-utility" data-tool="qrsticker" aria-label="Open QR Sticker">
+                  <span class="utility-art utility-art-parchment"><svg><use href="#icon-qr"></use></svg></span>
+                  <span>QR<br />Sticker</span>
+                  <small>text to QR png</small>
+                </button>
+                <button class="shelf-utility text-shelf-utility" data-tool="typing" aria-label="Open Typing Taste Test">
+                  <span class="utility-art utility-art-teal"><svg><use href="#icon-typing"></use></svg></span>
+                  <span>Typing<br />Taste Test</span>
+                  <small>wpm game</small>
+                </button>
+              </div>
+              <div class="category-shelf text-category-shelf">
+                <button class="shelf-utility text-shelf-utility" data-tool="banner" aria-label="Open Banner Butter">
+                  <span class="utility-art utility-art-blue"><svg><use href="#icon-banner"></use></svg></span>
+                  <span>Banner<br />Butter</span>
+                  <small>ascii block art</small>
+                </button>
+                <button class="shelf-utility text-shelf-utility" data-tool="reflow" aria-label="Open Paragraph Chef">
+                  <span class="utility-art utility-art-coral"><svg><use href="#icon-reflow"></use></svg></span>
+                  <span>Paragraph<br />Chef</span>
+                  <small>wrap &amp; join lines</small>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="game-world design-screen category-screen" id="designWorld" data-category-screen="design" hidden>
+      <button class="waffle-backdrop" id="designWaffleBackdrop" aria-label="Bounce the waffle wall"></button>
+
+      <nav class="math-nav" aria-label="Kitchen navigation">
+        <button class="back-home-button" id="backHomeDesign">
+          <span aria-hidden="true">←</span>
+          Home kitchen
+        </button>
+      </nav>
+
+      <header class="kitchen-header category-header">
+        <div class="hanging-rope hanging-rope-left" aria-hidden="true"></div>
+        <div class="hanging-rope hanging-rope-right" aria-hidden="true"></div>
+        <div class="title-sign design-title-sign">
+          <span class="title-doodle" aria-hidden="true">✦</span>
+          <div>
+            <p>Sketch it. Swatch it. Shine it.</p>
+            <h1>Design <span>&amp;</span> Art</h1>
+          </div>
+          <span class="title-doodle" aria-hidden="true">✿</span>
+        </div>
+      </header>
+
+      <main class="category-cabinet-scene design-cabinet-scene">
+        <section class="open-category-cabinet design-category-cabinet" aria-label="Open Design and Art cupboard containing ten utilities">
+          <div class="category-cabinet-crown" aria-hidden="true"></div>
+          <div class="category-cabinet-frame">
+            <div class="category-cabinet-back">
+              <div class="category-shelf design-category-shelf">
+                <button class="shelf-utility design-shelf-utility" data-tool="artstudio" aria-label="Open Art Studio">
+                  <span class="utility-art utility-art-pink"><svg><use href="#icon-artstudio"></use></svg></span>
+                  <span>Art<br />Studio</span>
+                  <small>brushes · 32 colors · stamps</small>
+                </button>
+                <button class="shelf-utility design-shelf-utility" data-tool="colorpicker" aria-label="Open Color Picker">
+                  <span class="utility-art utility-art-honey"><svg><use href="#icon-colorpicker"></use></svg></span>
+                  <span>Color<br />Picker</span>
+                  <small>pick · shades · copy</small>
+                </button>
+              </div>
+              <div class="category-shelf design-category-shelf">
+                <button class="shelf-utility design-shelf-utility" data-tool="pixelart" aria-label="Open Pixel Painter">
+                  <span class="utility-art utility-art-coral"><svg><use href="#icon-pixelart"></use></svg></span>
+                  <span>Pixel<br />Painter</span>
+                  <small>retro sprite grid</small>
+                </button>
+                <button class="shelf-utility design-shelf-utility" data-tool="gradient" aria-label="Open Gradient Mixer">
+                  <span class="utility-art utility-art-teal"><svg><use href="#icon-gradient"></use></svg></span>
+                  <span>Gradient<br />Mixer</span>
+                  <small>smooth blends + CSS</small>
+                </button>
+              </div>
+              <div class="category-shelf design-category-shelf">
+                <button class="shelf-utility design-shelf-utility" data-tool="palette" aria-label="Open Palette Baker">
+                  <span class="utility-art utility-art-lilac"><svg><use href="#icon-palette"></use></svg></span>
+                  <span>Palette<br />Baker</span>
+                  <small>5-color theme decks</small>
+                </button>
+                <button class="shelf-utility design-shelf-utility" data-tool="boxshadow" aria-label="Open Shadow and Glow">
+                  <span class="utility-art utility-art-sage"><svg><use href="#icon-boxshadow"></use></svg></span>
+                  <span>Shadow &amp;<br />Glow</span>
+                  <small>3D card + neon CSS</small>
+                </button>
+              </div>
+              <div class="category-shelf design-category-shelf">
+                <button class="shelf-utility design-shelf-utility" data-tool="blobmaker" aria-label="Open Blob Maker">
+                  <span class="utility-art utility-art-pink"><svg><use href="#icon-blobmaker"></use></svg></span>
+                  <span>Blob<br />Maker</span>
+                  <small>organic SVG shapes</small>
+                </button>
+                <button class="shelf-utility design-shelf-utility" data-tool="pattern" aria-label="Open Pattern Tiles">
+                  <span class="utility-art utility-art-blue"><svg><use href="#icon-pattern"></use></svg></span>
+                  <span>Pattern<br />Tiles</span>
+                  <small>dots · checks · stars</small>
+                </button>
+              </div>
+              <div class="category-shelf design-category-shelf">
+                <button class="shelf-utility design-shelf-utility" data-tool="fontpair" aria-label="Open Font Playground">
+                  <span class="utility-art utility-art-parchment"><svg><use href="#icon-fontpair"></use></svg></span>
+                  <span>Font<br />Playground</span>
+                  <small>type styles &amp; preview</small>
+                </button>
+                <button class="shelf-utility design-shelf-utility" data-tool="stickermaker" aria-label="Open Sticker Maker">
+                  <span class="utility-art utility-art-honey"><svg><use href="#icon-stickermaker"></use></svg></span>
+                  <span>Sticker<br />Maker</span>
+                  <small>custom badges &amp; seals</small>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <button class="settings-launch" id="openSettings" aria-label="Open game settings">
+      <svg><use href="#icon-settings"></use></svg>
+      <span>Settings</span>
+    </button>
+
+    <div class="settings-overlay" id="settingsOverlay" aria-hidden="true">
+      <button class="settings-curtain" id="settingsCurtain" aria-label="Close settings"></button>
+      <section class="settings-card" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+        <header class="settings-header">
+          <span class="settings-heading-icon"><svg><use href="#icon-settings"></use></svg></span>
+          <div>
+            <p>Cozy controls</p>
+            <h2 id="settingsTitle">Game Settings</h2>
+          </div>
+          <button class="round-close" id="closeSettings" aria-label="Close settings">
+            <svg><use href="#icon-close"></use></svg>
+          </button>
+        </header>
+        <div class="settings-body">
+          <section class="settings-section">
+            <h3>Kitchen colors</h3>
+            <div class="color-setting-grid">
+              <label class="color-setting" for="mainColor">
+                <span><strong>Main color</strong><small>Signs and game panels</small></span>
+                <input id="mainColor" type="color" value="#c98550" />
+              </label>
+              <label class="color-setting" for="accentColor">
+                <span><strong>Accent color</strong><small>Buttons, knobs, and highlights</small></span>
+                <input id="accentColor" type="color" value="#efb94f" />
+              </label>
+            </div>
+            <div class="theme-presets" aria-label="Color presets">
+              <button data-theme-preset="#c98550,#efb94f" aria-label="Honey kitchen colors"><span style="background:#c98550"></span><span style="background:#efb94f"></span></button>
+              <button data-theme-preset="#c86f75,#f0bd69" aria-label="Berry kitchen colors"><span style="background:#c86f75"></span><span style="background:#f0bd69"></span></button>
+              <button data-theme-preset="#729b7b,#e9b85c" aria-label="Sage kitchen colors"><span style="background:#729b7b"></span><span style="background:#e9b85c"></span></button>
+              <button data-theme-preset="#658fa3,#e99a68" aria-label="Ocean kitchen colors"><span style="background:#658fa3"></span><span style="background:#e99a68"></span></button>
+              <button data-theme-preset="#91749b,#e7ac62" aria-label="Plum kitchen colors"><span style="background:#91749b"></span><span style="background:#e7ac62"></span></button>
+              <button data-theme-preset="#f49ac2,#efb94f" aria-label="Cotton candy kitchen colors"><span style="background:#f49ac2"></span><span style="background:#efb94f"></span></button>
+            </div>
+          </section>
+          <section class="settings-section">
+            <h3>Performance</h3>
+            <button class="detail-toggle" id="lowDetailToggle" aria-pressed="false">
+              <span class="detail-toggle-copy"><strong>Potato mode</strong><small>Fewer textures, shadows, and animations</small></span>
+              <span class="toggle-track" aria-hidden="true"><span></span></span>
+            </button>
+          </section>
+          <button class="game-button settings-reset" id="resetSettings">RESET SETTINGS</button>
+        </div>
+      </section>
+    </div>
+
+    <div class="tool-overlay" id="toolOverlay" aria-hidden="true">
+      <button class="overlay-curtain" id="overlayCurtain" aria-label="Close utility"></button>
+      <section class="tool-drawer" role="dialog" aria-modal="true" aria-labelledby="toolTitle">
+        <div class="drawer-handle" aria-hidden="true"></div>
+        <header class="tool-header">
+          <div class="tool-heading-icon" id="toolHeadingIcon"></div>
+          <div class="tool-heading-copy">
+            <p id="toolCategory">Math &amp; Numbers</p>
+            <h2 id="toolTitle"></h2>
+          </div>
+          <button class="round-close" id="closeTool" aria-label="Back to cupboards">
+            <svg><use href="#icon-close"></use></svg>
+          </button>
+        </header>
+        <div class="tool-body" id="toolBody"></div>
+      </section>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <div class="confetti-field" id="confettiField" aria-hidden="true"></div>
+    <div hidden aria-hidden="true">
+      <div id="homeMascot"><span id="homeMascotSpeech"></span></div>
+      <div id="waffleMascot"><span id="mascotSpeech"></span></div>
+      <div id="codingMascot"><span id="codingMascotSpeech"></span></div>
+      <div id="textMascot"><span id="textMascotSpeech"></span></div>
+      <div id="designMascot"><span id="designMascotSpeech"></span></div>
+    </div>
+
+    <script src="text-files-converter-v2.js?v=13"></script>
+    <script src="text-files-filters-v1.js?v=13"></script>
+    <script src="text-files-extra-v1.js?v=13"></script>
+    <script src="text-files-extra-v2.js?v=13"></script>
+    <script src="design-art-v1.js?v=13"></script>
+    <script src="game-v11.js?v=17"></script>
+    <script src="ui-polish.js?v=5"></script>
+  </body>
+</html>

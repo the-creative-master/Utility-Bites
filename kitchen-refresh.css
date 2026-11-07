@@ -1,0 +1,107 @@
+/* A fresh coat of paint for the utility kitchen. The original tools and
+   their selectors stay intact; this layer only changes their presentation. */
+:root {
+  --ink: #493126;
+  --ink-soft: #755644;
+  --cream: #fff8e8;
+  --cream-deep: #f5dfba;
+  --wall: #ead7b3;
+  --wall-2: #d9c39e;
+  --wood: #a96845;
+  --wood-light: #d9a476;
+  --wood-dark: #68442f;
+  --recess: #73533e;
+  --shadow: rgba(68, 45, 32, .22);
+  --shadow-deep: rgba(54, 34, 25, .34);
+}
+html { background: #ead7b3; }
+body {
+  background: #ead7b3;
+  font-family: "Arial Rounded MT Bold", "Trebuchet MS", ui-rounded, system-ui, sans-serif;
+}
+.home-wall, .waffle-backdrop {
+  background-color: #ead7b3 !important;
+  background-image: linear-gradient(90deg, rgba(255,255,255,.13) 1px, transparent 1px), linear-gradient(rgba(255,255,255,.12) 1px, transparent 1px), linear-gradient(180deg, #f6e8cd, #e3cba6) !important;
+  background-size: 42px 42px, 42px 42px, auto !important;
+  opacity: 1;
+}
+.home-top-shelf {
+  background-color: #bc805a;
+  border-color: #68442f;
+  box-shadow: inset 0 3px rgba(255,255,255,.3), 0 7px 0 #815337, 0 14px 25px rgba(68,45,32,.22);
+}
+.title-sign, .home-title-sign {
+  border-color: #68442f;
+  background: linear-gradient(145deg, #e8b485, var(--theme-main, #c98550) 68%, var(--theme-main-dark, #8f4b16));
+  border-radius: 28px 32px 28px 32px;
+  box-shadow: inset 0 3px 0 rgba(255,255,255,.28), inset 0 -7px 0 rgba(84,46,25,.13), 0 9px 0 #68442f, 0 17px 25px rgba(68,45,32,.24);
+}
+.title-sign h1 { color: #fff9e9; letter-spacing: -.045em; }
+.title-sign p { color: #fff4df; letter-spacing: .09em; }
+.home-prompt {
+  background: #fff8e8;
+  border-color: #68442f;
+  box-shadow: 0 5px 0 #b38b67, 0 10px 18px rgba(68,45,32,.14);
+}
+.home-cupboard-frame, .category-cabinet-frame {
+  border-color: #68442f;
+  background-color: #bd835c;
+  box-shadow: inset 0 3px rgba(255,255,255,.24), 0 9px 0 #795139, 0 16px 24px rgba(68,45,32,.25);
+}
+.home-cupboard-crown, .category-cabinet-crown { border-color: #68442f; background-color: #d9a476; }
+.home-cupboard-door {
+  background-color: #c98768;
+  border-color: #84553c;
+  box-shadow: inset 0 5px rgba(255,255,255,.3), inset 0 -8px rgba(87,48,33,.12), 0 6px 0 #80523d, 0 10px 16px rgba(68,45,32,.2);
+}
+.home-cupboard-code .home-cupboard-door { background-color: #83a99b; border-color: #56786c; }
+.home-cupboard-text .home-cupboard-door { background-color: #aa9caf; border-color: #75667b; }
+.home-cupboard-design .home-cupboard-door { background-color: #ca8f91; border-color: #985f65; }
+.home-door-inset { border-color: rgba(255,249,230,.36); box-shadow: inset 0 2px 6px rgba(68,45,32,.14), 0 1px rgba(255,255,255,.2); }
+.home-door-knob { background: #f7d897; box-shadow: inset 0 2px rgba(255,255,255,.7), 1px 3px 0 rgba(75,49,32,.4); }
+.home-counter { filter: saturate(.8); }
+.bite-home-search {
+  background: #fffaf0;
+  border-color: #68442f;
+  box-shadow: inset 0 2px rgba(255,255,255,.8), 0 5px 0 #ad8562, 0 11px 20px rgba(68,45,32,.16);
+}
+.bite-home-results { border-color: #68442f; background: #fff8e8; box-shadow: 0 6px 0 #ad8562, 0 14px 22px rgba(68,45,32,.2); }
+.bite-hs-item { border-color: #8a6a52; background: #f9ecd4; box-shadow: 0 4px 0 #c3a17d; }
+.category-cabinet-back { background-color: #73533e; border-color: #5d3b2b; box-shadow: inset 0 12px 0 #5d3b2b, inset 0 0 0 6px rgba(43,23,15,.1); }
+.category-shelf::after { background-color: #c58d65; border-color: #68442f; box-shadow: 0 6px 0 #68442f, 0 10px 12px rgba(35,18,12,.25); }
+.shelf-utility { text-shadow: 0 2px 0 #4b3023; }
+.shelf-utility .utility-art { filter: drop-shadow(0 5px 3px rgba(40,25,15,.2)); }
+.back-home-button, .settings-launch { border-color: #68442f; box-shadow: 0 5px 0 #986c4e, 0 9px 15px rgba(68,45,32,.18); }
+.tool-drawer, .settings-card {
+  border-color: #68442f;
+  background: #fff8e8;
+  box-shadow: 0 9px 0 #68442f, 0 24px 45px rgba(40,25,16,.35);
+}
+.overlay-curtain, .settings-curtain { background: rgba(55,39,29,.68); }
+.tool-header, .settings-header {
+  background-color: var(--theme-main, #c98550);
+  border-color: var(--theme-main-dark, #8f4b16);
+}
+.tool-body { background: #fff8e8; padding-bottom: max(32px, env(safe-area-inset-bottom)); }
+.round-close { min-width: 44px; min-height: 44px; }
+.game-button { border-radius: 14px; }
+input, textarea, select { max-width: 100%; }
+button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+  outline: 3px solid #365f70;
+  outline-offset: 3px;
+}
+@media (max-width: 600px) {
+  .home-header { padding-left: 12px; padding-right: 12px; }
+  .home-category-grid { gap: 16px 10px; }
+  .home-category-grid .home-cupboard-frame { min-height: 160px; }
+  .bite-home-search { margin-top: 12px; padding: 5px 10px 5px 14px; }
+  .bite-hs-input { font-size: 16px; }
+  .category-cabinet-scene { padding-bottom: max(65px, env(safe-area-inset-bottom)); }
+  .tool-overlay { padding: 6px; }
+  .tool-drawer { max-height: calc(100dvh - 12px); border-radius: 24px 24px 16px 16px; }
+  .tool-header { gap: 8px; }
+  .tool-body input, .tool-body textarea, .tool-body select { font-size: max(16px, 1em); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}
