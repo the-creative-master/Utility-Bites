@@ -1,0 +1,563 @@
+/* =========================================================
+   polish.css — cozy-kitchen polish, same vibe, more shine.
+   Layered on top of game-v11.css. No JS classes are touched.
+   ========================================================= */
+
+:root {
+  /* Slightly richer, warmer bakery palette */
+  --ink: #3e2519;
+  --ink-soft: #6a4430;
+  --cream: #fff6e0;
+  --cream-deep: #f6e1ae;
+  --wall: #f2c98a;
+  --wall-2: #eab673;
+  --wood: #b47145;
+  --wood-light: #d79662;
+  --wood-dark: #723d22;
+  --shadow: rgba(62, 30, 14, 0.22);
+  --shadow-deep: rgba(46, 23, 12, 0.36);
+}
+
+html, body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Wall: warmer, softer, with a gentle vignette ---------- */
+body {
+  background:
+    radial-gradient(1200px 600px at 50% -10%, rgba(255,245,215,0.6), transparent 60%),
+    radial-gradient(900px 600px at 50% 110%, rgba(180,100,50,0.22), transparent 55%),
+    var(--wall);
+}
+
+.home-wall,
+.waffle-backdrop {
+  background-color: var(--wall) !important;
+  opacity: 0.92;
+}
+
+/* Decorative shelves/plates: add highlights + gentle glow */
+.home-top-shelf {
+  box-shadow:
+    0 3px 0 rgba(255,255,255,0.2) inset,
+    0 -4px 0 rgba(0,0,0,0.08) inset,
+    0 8px 0 rgba(88,40,22,0.35),
+    0 14px 22px var(--shadow-deep);
+}
+
+/* ---------- Title sign: more bakery, more pop ---------- */
+.title-sign {
+  border-width: 7px;
+  border-radius: 32px 36px 30px 34px;
+  background:
+    radial-gradient(120% 80% at 30% 0%, rgba(255,255,255,0.22), transparent 60%),
+    linear-gradient(160deg, #e89b5e 0%, var(--theme-main, #c98550) 55%, #a45d28 100%);
+  box-shadow:
+    0 2px 0 rgba(255,236,200,0.3) inset,
+    0 -8px 0 rgba(0,0,0,0.12) inset,
+    0 12px 0 var(--theme-main-dark, #8f4b16),
+    0 22px 32px -6px var(--shadow-deep);
+}
+.home-title-sign {
+  background:
+    radial-gradient(120% 80% at 25% 0%, rgba(255,240,210,0.3), transparent 60%),
+    linear-gradient(160deg, #ed9f64 0%, var(--theme-main, #c98550) 60%, #9a5020 100%);
+}
+.title-sign p {
+  letter-spacing: 0.14em;
+  text-shadow: 0 2px 0 rgba(0,0,0,0.18);
+}
+.title-sign h1 {
+  text-shadow: 0 4px 0 var(--theme-main-dark, #8f4b16), 0 6px 10px rgba(60,25,10,0.28);
+  letter-spacing: -0.045em;
+}
+.title-sign h1 span { text-shadow: 0 3px 0 rgba(0,0,0,0.18); }
+.title-sign::before,
+.title-sign::after {
+  box-shadow:
+    inset 0 -3px 0 var(--honey-dark),
+    0 2px 0 rgba(0,0,0,0.25);
+}
+.home-title-bite {
+  background: linear-gradient(180deg, #ffd76e, var(--honey));
+  box-shadow:
+    inset 0 -6px 0 rgba(124,76,35,0.22),
+    inset 0 3px 0 rgba(255,255,255,0.4),
+    0 4px 0 #6f402c,
+    0 6px 10px rgba(0,0,0,0.22);
+}
+.title-doodle {
+  text-shadow: 0 3px 0 #70402b, 0 6px 10px rgba(0,0,0,0.2);
+}
+
+/* Nail dots on sign look more like shiny nails */
+.hanging-rope {
+  background: linear-gradient(180deg, #c49064, #8a5a3a);
+  box-shadow: 3px 0 0 rgba(0,0,0,0.22);
+}
+
+/* ---------- Home prompt bubble: friendlier ---------- */
+.home-prompt {
+  border-radius: 999px;
+  background: linear-gradient(180deg, #fffaec, var(--cream));
+  box-shadow:
+    0 3px 0 rgba(255,255,255,0.5) inset,
+    0 -3px 0 rgba(0,0,0,0.06) inset,
+    0 6px 0 #b17b4e,
+    0 12px 18px var(--shadow);
+  letter-spacing: 0.14em;
+}
+.home-prompt::after {
+  box-shadow: 3px 3px 0 #b17b4e;
+}
+
+/* ---------- Cupboards: richer wood, deeper shadows ---------- */
+.home-cupboard-crown {
+  box-shadow:
+    0 3px 0 rgba(255,220,170,0.2) inset,
+    0 -3px 0 rgba(0,0,0,0.08) inset,
+    0 8px 0 rgba(89,48,30,0.35);
+}
+.home-cupboard-frame {
+  background:
+    radial-gradient(120% 60% at 50% 0%, rgba(255,220,170,0.18), transparent 60%),
+    linear-gradient(180deg, #c58452 0%, var(--wood) 50%, #8d5531 100%);
+  background-image:
+    radial-gradient(120% 60% at 50% 0%, rgba(255,220,170,0.18), transparent 60%),
+    url("assets/wood-grain.svg");
+  border-color: #5e321b;
+  box-shadow:
+    0 2px 0 rgba(255,220,170,0.18) inset,
+    0 -8px 0 rgba(0,0,0,0.12) inset,
+    0 14px 0 #5c341e,
+    0 24px 32px -4px var(--shadow-deep);
+}
+.home-cupboard-frame::after {
+  background: linear-gradient(180deg, var(--wood-light), #b87944);
+}
+.home-cupboard-inside {
+  background:
+    radial-gradient(140% 60% at 50% 0%, rgba(0,0,0,0.25), transparent 60%),
+    #5c3624 url("assets/wood-grain.svg");
+  box-shadow:
+    inset 0 18px 0 #3e2214,
+    inset 0 0 0 8px rgba(0,0,0,0.2),
+    inset 0 -20px 30px rgba(0,0,0,0.35);
+}
+
+/* Doors: brighter fronts, gloss highlight, shinier knobs */
+.home-cupboard-door {
+  border-width: 7px;
+  box-shadow:
+    inset 0 8px 0 rgba(255,245,218,0.28),
+    inset 0 -12px 0 rgba(60,28,18,0.18),
+    inset 3px 0 0 rgba(255,245,218,0.12),
+    0 9px 0 var(--coral-dark),
+    0 16px 22px rgba(40,18,10,0.32);
+  transition: transform 520ms cubic-bezier(0.24,0.88,0.34,1.1), box-shadow 260ms ease;
+}
+.home-cupboard-code .home-cupboard-door {
+  box-shadow:
+    inset 0 8px 0 rgba(255,248,240,0.28),
+    inset 0 -12px 0 rgba(40,70,66,0.22),
+    0 9px 0 var(--teal-dark),
+    0 16px 22px rgba(40,18,10,0.32);
+}
+.home-cupboard-text .home-cupboard-door {
+  box-shadow:
+    inset 0 8px 0 rgba(255,244,250,0.28),
+    inset 0 -12px 0 rgba(70,48,82,0.22),
+    0 9px 0 var(--lilac-dark),
+    0 16px 22px rgba(40,18,10,0.32);
+}
+.home-cupboard-design .home-cupboard-door {
+  box-shadow:
+    inset 0 8px 0 rgba(255,245,250,0.4),
+    inset 0 -12px 0 rgba(130,50,88,0.22),
+    0 9px 0 var(--pink-dark),
+    0 16px 22px rgba(40,18,10,0.32);
+}
+.home-door-inset {
+  border-width: 7px;
+  box-shadow:
+    inset 0 0 0 9px rgba(255,240,200,0.14),
+    inset 0 10px 0 rgba(255,250,230,0.16),
+    inset 0 -10px 0 rgba(0,0,0,0.08);
+}
+.home-door-inset strong {
+  text-shadow: 0 4px 0 #833f37, 0 6px 0 rgba(0,0,0,0.15);
+}
+.home-cupboard-code .home-door-inset strong { text-shadow: 0 4px 0 #47716d, 0 6px 0 rgba(0,0,0,0.15); }
+.home-cupboard-text .home-door-inset strong { text-shadow: 0 4px 0 #654e6e, 0 6px 0 rgba(0,0,0,0.15); }
+.home-cupboard-design .home-door-inset strong { text-shadow: 0 4px 0 #944369, 0 6px 0 rgba(0,0,0,0.15); }
+.home-door-icons svg {
+  filter: drop-shadow(0 8px 0 rgba(60,30,18,0.25)) drop-shadow(0 0 6px rgba(255,240,200,0.25));
+}
+.home-door-knob {
+  background: linear-gradient(180deg, #ffd76e, var(--honey) 60%, #d69b32);
+  box-shadow:
+    inset 0 -4px 0 rgba(0,0,0,0.18),
+    inset 0 3px 0 rgba(255,255,255,0.4),
+    0 5px 0 #8d5b2b,
+    0 8px 12px rgba(0,0,0,0.28);
+}
+
+/* Inside-the-cupboard preview icon gets a little glow */
+.home-inside-icon {
+  box-shadow:
+    0 2px 0 rgba(255,240,200,0.25) inset,
+    0 -4px 0 rgba(0,0,0,0.18) inset,
+    0 10px 0 #3d241a,
+    0 14px 20px rgba(0,0,0,0.3);
+}
+.home-shelf-board {
+  background: linear-gradient(180deg, #d49664, #a5673a);
+  box-shadow: 0 8px 0 #3f241a, 0 10px 14px rgba(0,0,0,0.38);
+}
+
+/* Open-door 3D swing looks more dramatic */
+.home-cupboard.open .home-cupboard-door {
+  box-shadow:
+    inset -12px 0 0 rgba(40,20,12,0.25),
+    -14px 14px 24px rgba(40,18,10,0.38);
+}
+
+/* Counter: richer wood + gloss */
+.home-counter {
+  background:
+    linear-gradient(180deg, #e3a26b 0%, var(--wood-light) 35%, #9f6338 100%),
+    url("assets/wood-grain.svg");
+  border-width: 8px;
+  box-shadow:
+    0 -6px 0 rgba(255,220,170,0.35) inset,
+    0 -12px 0 var(--wood-dark),
+    0 -20px 28px rgba(40,18,10,0.28);
+}
+
+/* ---------- Category cabinets (deep open cupboards) ---------- */
+.back-home-button {
+  border-radius: 999px;
+  background: linear-gradient(180deg, #fffaec, var(--cream));
+  box-shadow:
+    0 2px 0 rgba(255,255,255,0.5) inset,
+    0 -3px 0 rgba(0,0,0,0.06) inset,
+    0 6px 0 #aa7145,
+    0 10px 16px var(--shadow);
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+.back-home-button:hover { transform: translateY(-2px) rotate(-1deg); }
+.back-home-button span {
+  background: linear-gradient(180deg, #ffd76e, var(--honey));
+  box-shadow: inset 0 -3px 0 rgba(0,0,0,0.15), 0 3px 0 var(--honey-dark);
+}
+
+.category-cabinet-crown {
+  background: linear-gradient(180deg, #e4a46a, var(--wood-light));
+  border-color: #5e321b;
+  box-shadow:
+    0 3px 0 rgba(255,220,170,0.2) inset,
+    0 -3px 0 rgba(0,0,0,0.1) inset,
+    0 8px 0 rgba(80,42,22,0.35);
+}
+.category-cabinet-frame {
+  background:
+    radial-gradient(140% 60% at 50% 0%, rgba(255,220,170,0.18), transparent 60%),
+    linear-gradient(180deg, #c58452 0%, var(--wood) 45%, #8a532e 100%),
+    url("assets/wood-grain.svg");
+  border-color: #5e321b;
+  border-width: 8px;
+  border-radius: 34px;
+  box-shadow:
+    0 2px 0 rgba(255,220,170,0.18) inset,
+    0 -10px 0 rgba(0,0,0,0.12) inset,
+    0 16px 0 #5c341e,
+    0 26px 36px -6px var(--shadow-deep);
+}
+.category-cabinet-back {
+  background:
+    radial-gradient(140% 50% at 50% 0%, rgba(0,0,0,0.3), transparent 60%),
+    linear-gradient(180deg, #693b25 0%, var(--recess) 60%, #49291a 100%),
+    url("assets/wood-grain.svg");
+  box-shadow:
+    inset 0 18px 0 #3e2214,
+    inset 0 0 0 8px rgba(0,0,0,0.2),
+    inset 0 -24px 36px rgba(0,0,0,0.42);
+  border-color: #4a2817;
+}
+.category-shelf::after {
+  background: linear-gradient(180deg, #d49664, #9f6338);
+  box-shadow: 0 8px 0 #3f241a, 0 12px 14px rgba(0,0,0,0.42);
+}
+.shelf-utility {
+  transition: transform 180ms cubic-bezier(0.2,0.9,0.3,1.2), filter 180ms ease;
+}
+.shelf-utility .utility-art {
+  box-shadow:
+    0 2px 0 rgba(255,240,200,0.25) inset,
+    0 -3px 0 rgba(0,0,0,0.12) inset,
+    0 8px 0 #3f271c,
+    0 12px 14px rgba(0,0,0,0.32);
+  border-radius: 22px 24px 18px 22px;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+.shelf-utility:active .utility-art {
+  box-shadow:
+    0 2px 0 rgba(255,240,200,0.25) inset,
+    0 3px 0 #3f271c,
+    0 4px 6px rgba(0,0,0,0.2);
+}
+.shelf-utility small { text-shadow: 0 2px 0 #392016; }
+
+/* ---------- Tool drawer (bottom sheet): smoother, glossier ---------- */
+.tool-drawer {
+  border-width: 7px;
+  border-radius: 34px 34px 22px 22px;
+  background: linear-gradient(180deg, #fffaed, var(--cream) 40%, #f8e6bc 100%);
+  box-shadow:
+    0 2px 0 rgba(255,255,255,0.6) inset,
+    0 -6px 0 rgba(0,0,0,0.08) inset,
+    0 14px 0 #6a3b28,
+    0 28px 44px rgba(20,8,4,0.48);
+}
+.drawer-handle {
+  background: linear-gradient(180deg, #9a6a4f, #5c341e);
+  border-color: #3f2215;
+}
+.tool-header {
+  border-bottom: 6px solid var(--theme-main-dark);
+  background:
+    radial-gradient(140% 80% at 20% 0%, rgba(255,240,210,0.25), transparent 60%),
+    linear-gradient(160deg, #e89b5e 0%, var(--theme-main, #c98550) 60%, #9a5020 100%),
+    url("assets/wood-grain.svg");
+  box-shadow: 0 8px 0 rgba(60,25,10,0.2);
+}
+.tool-heading-icon {
+  background: linear-gradient(180deg, #ffd76e, var(--honey));
+  box-shadow:
+    inset 0 -4px 0 rgba(0,0,0,0.18),
+    inset 0 3px 0 rgba(255,255,255,0.4),
+    0 5px 0 #70412b,
+    0 9px 12px rgba(0,0,0,0.28);
+}
+.tool-heading-copy p { letter-spacing: 0.12em; }
+.tool-heading-copy h2 {
+  text-shadow: 0 4px 0 #71402c, 0 6px 8px rgba(0,0,0,0.22);
+}
+.round-close {
+  background: linear-gradient(180deg, #ffb7a3, var(--coral));
+  box-shadow:
+    inset 0 -3px 0 rgba(0,0,0,0.15),
+    inset 0 3px 0 rgba(255,255,255,0.3),
+    0 5px 0 #873f38,
+    0 8px 12px rgba(0,0,0,0.25);
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+.round-close:hover { transform: rotate(8deg) scale(1.05); }
+.round-close:active { box-shadow: 0 2px 0 #873f38; }
+
+/* Panels: creamier, glossier */
+.game-panel {
+  border-radius: 24px;
+  background: linear-gradient(180deg, #fbe7bf, #f5dcab);
+  box-shadow:
+    0 2px 0 rgba(255,255,255,0.5) inset,
+    0 -4px 0 rgba(0,0,0,0.06) inset,
+    0 8px 0 #b37b49,
+    0 14px 22px -4px var(--shadow);
+}
+.chunky-input,
+.chunky-textarea {
+  background: linear-gradient(180deg, #fffaed, var(--cream));
+  border-radius: 16px;
+  box-shadow:
+    inset 0 5px 0 rgba(177,125,68,0.12),
+    inset 0 -2px 0 rgba(255,255,255,0.4),
+    0 5px 0 #b67e4d;
+}
+.chunky-input:focus,
+.chunky-textarea:focus {
+  box-shadow:
+    inset 0 3px 0 rgba(177,125,68,0.1),
+    0 3px 0 #8a5d3c;
+}
+.game-button {
+  border-radius: 16px;
+  background: linear-gradient(180deg, #ffd76e, var(--honey) 60%, #e8ad33);
+  box-shadow:
+    0 2px 0 rgba(255,255,255,0.35) inset,
+    0 -3px 0 rgba(0,0,0,0.12) inset,
+    0 6px 0 var(--honey-dark),
+    0 10px 14px -2px var(--shadow);
+  transition: transform 120ms ease, box-shadow 120ms ease, filter 120ms ease;
+}
+.game-button:hover { filter: brightness(1.04) saturate(1.05); }
+.game-button-coral {
+  background: linear-gradient(180deg, #ffa992, var(--coral) 60%, #c6604c);
+  box-shadow:
+    0 2px 0 rgba(255,255,255,0.3) inset,
+    0 -3px 0 rgba(0,0,0,0.12) inset,
+    0 6px 0 var(--coral-dark),
+    0 10px 14px -2px var(--shadow);
+}
+.game-button-teal {
+  background: linear-gradient(180deg, #a5d6d0, var(--teal) 60%, #5d9892);
+  box-shadow:
+    0 2px 0 rgba(255,255,255,0.3) inset,
+    0 -3px 0 rgba(0,0,0,0.12) inset,
+    0 6px 0 var(--teal-dark),
+    0 10px 14px -2px var(--shadow);
+}
+.game-button-sage {
+  background: linear-gradient(180deg, #b4d5a4, var(--sage) 60%, #719464);
+  box-shadow:
+    0 2px 0 rgba(255,255,255,0.3) inset,
+    0 -3px 0 rgba(0,0,0,0.12) inset,
+    0 6px 0 var(--sage-dark),
+    0 10px 14px -2px var(--shadow);
+}
+.game-button-pink {
+  background: linear-gradient(180deg, #ffbfda, var(--pink) 60%, #d2749e);
+  box-shadow:
+    0 2px 0 rgba(255,255,255,0.35) inset,
+    0 -3px 0 rgba(0,0,0,0.12) inset,
+    0 6px 0 var(--pink-dark),
+    0 10px 14px -2px var(--shadow);
+}
+.game-button:active {
+  box-shadow:
+    0 2px 0 rgba(255,255,255,0.35) inset,
+    0 -2px 0 rgba(0,0,0,0.12) inset,
+    0 2px 0 var(--honey-dark),
+    0 4px 6px -2px var(--shadow);
+}
+.tab-button {
+  border-radius: 14px;
+  background: linear-gradient(180deg, #faebc3, #f2d79e);
+  box-shadow:
+    0 2px 0 rgba(255,255,255,0.4) inset,
+    0 -2px 0 rgba(0,0,0,0.06) inset,
+    0 5px 0 #ad7545;
+  transition: transform 120ms ease, box-shadow 120ms ease, background 120ms ease;
+}
+.tab-button.active,
+.tab-button[aria-selected="true"] {
+  background: linear-gradient(180deg, #ffb5a0, var(--coral) 70%);
+  color: #fff;
+  box-shadow:
+    0 2px 0 rgba(255,255,255,0.3) inset,
+    0 3px 0 var(--coral-dark);
+}
+.result-card {
+  border-radius: 22px;
+  background: linear-gradient(180deg, #fffaed, #fff2d3);
+  box-shadow:
+    0 2px 0 rgba(255,255,255,0.5) inset,
+    0 7px 0 #b37b49;
+}
+
+/* Calculator, keys */
+.calculator-shell {
+  border-radius: 30px;
+  background: linear-gradient(180deg, #ff9e85, var(--coral) 60%, #b85a47);
+  box-shadow:
+    0 2px 0 rgba(255,240,220,0.25) inset,
+    0 -6px 0 rgba(0,0,0,0.16) inset,
+    0 11px 0 var(--coral-dark),
+    0 20px 26px var(--shadow-deep);
+}
+.calc-display {
+  background: linear-gradient(180deg, #dde6c0, #cfd9ae);
+  box-shadow: inset 0 6px 0 rgba(78,72,43,0.2), 0 5px 0 #964d42;
+}
+.calc-key {
+  border-radius: 16px;
+  background: linear-gradient(180deg, #fff8e4, var(--cream));
+  box-shadow:
+    0 2px 0 rgba(255,255,255,0.5) inset,
+    0 -3px 0 rgba(0,0,0,0.1) inset,
+    0 6px 0 #9e5849;
+  transition: transform 100ms ease, box-shadow 100ms ease;
+}
+.calc-key-operator {
+  background: linear-gradient(180deg, #ffd76e, var(--honey));
+}
+.calc-key-action {
+  background: linear-gradient(180deg, #c2e2dc, #acd0c8);
+}
+.calc-key-equals {
+  background: linear-gradient(180deg, #b1d5a1, var(--sage));
+}
+.calc-key:active,
+.calc-key.pressed {
+  box-shadow: 0 2px 0 #9e5849;
+}
+
+/* Settings: glossier card */
+.settings-launch {
+  border-radius: 999px;
+  background: linear-gradient(180deg, #fffaec, var(--cream));
+  box-shadow:
+    0 2px 0 rgba(255,255,255,0.5) inset,
+    0 -3px 0 rgba(0,0,0,0.06) inset,
+    0 6px 0 #a46c43,
+    0 12px 16px var(--shadow);
+  transition: transform 120ms ease;
+}
+.settings-launch:hover { transform: translateY(-2px) rotate(-4deg); }
+.settings-card {
+  border-radius: 32px;
+  border-width: 7px;
+  background: linear-gradient(180deg, #fffaed, var(--cream) 60%, #f6e1ae 100%);
+  box-shadow:
+    0 2px 0 rgba(255,255,255,0.5) inset,
+    0 -6px 0 rgba(0,0,0,0.08) inset,
+    0 14px 0 var(--theme-main-dark),
+    0 28px 44px var(--shadow-deep);
+}
+.settings-header {
+  background:
+    radial-gradient(140% 80% at 20% 0%, rgba(255,240,210,0.25), transparent 60%),
+    linear-gradient(160deg, #e89b5e 0%, var(--theme-main) 60%, #9a5020 100%),
+    url("assets/wood-grain.svg");
+}
+.settings-section {
+  border-radius: 22px;
+  background: linear-gradient(180deg, #fbe7bf, #f3d69b);
+  box-shadow:
+    0 2px 0 rgba(255,255,255,0.45) inset,
+    0 7px 0 #ab7549;
+}
+.theme-presets button {
+  border-radius: 14px;
+  box-shadow: 0 4px 0 #9e6b46;
+}
+.theme-presets button.active { box-shadow: 0 2px 0 #805333; }
+
+/* Toast pill */
+.toast {
+  border-radius: 999px;
+  background: linear-gradient(180deg, #fffaec, var(--cream));
+  box-shadow:
+    0 2px 0 rgba(255,255,255,0.5) inset,
+    0 7px 0 #a46c43,
+    0 14px 22px var(--shadow-deep);
+}
+
+/* Confetti crisper colors */
+.confetti-piece { border-radius: 4px 6px 5px 7px; }
+
+/* ---------- Focus rings: softer, but still chunky ---------- */
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 4px solid #ffd76e;
+  outline-offset: 3px;
+}
+
+/* ---------- Subtle entrance polish ---------- */
+.home-screen,
+.math-screen { animation-duration: 520ms; }
+.title-sign { animation-duration: 760ms; }
+
+/* ---------- Potato mode still light ---------- */
