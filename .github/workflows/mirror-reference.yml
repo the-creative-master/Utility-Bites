@@ -1,0 +1,30 @@
+name: Download reference site
+on:
+  push:
+    branches:
+      - arena/f9eedfbf-utility-bites
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install downloader
+        run: |
+          git clone --depth 1 https://github.com/PKHarsimran/website-downloader.git /tmp/website-downloader
+          python -m pip install '/tmp/website-downloader[render]'
+          python -m playwright install --with-deps chromium
+      - name: Download reference
+        run: website-downloader --url https://bitesizedutilities.vercel.app/ --destination mirror --max-pages 20 --render-js
+      - name: Upload mirror
+        uses: actions/upload-artifact@v4
+        with:
+          name: reference-mirror
+          path: mirror/
+          if-no-files-found: error
