@@ -26,6 +26,8 @@ jobs:
           python -m playwright install --with-deps chromium
       - name: Download reference
         run: website-downloader --url https://bitesizedutilities.vercel.app/ --destination mirror --max-pages 20 --render-js
+      - name: Save original HTML
+        run: curl -fsSL https://bitesizedutilities.vercel.app/ -o mirror/original.html
       - name: Upload mirror
         uses: actions/upload-artifact@v4
         with:
